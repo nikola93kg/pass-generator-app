@@ -9,7 +9,7 @@ const Checkbox = props => {
     return (
         <>
             <div className="col-3">
-                <label htmlFor="" className="container">
+                <label className="container">
                     <h1>{label}</h1>
                     <input type="checkbox"
                         name={name}

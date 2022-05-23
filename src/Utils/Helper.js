@@ -55,3 +55,16 @@ export const setPasswordLength = length => {
 export const generatePasswordLength = () => {
     return passwordLength;
 }
+
+export const generatePassword = (passwordProps, passLength) => {
+    const { uppercase, lowercase, symbols, numbers } = passwordProps;
+
+    setPasswordLength(passLength)
+    setUpperCase(uppercase);
+    setLowerCase(lowercase);
+    setSymbols(symbols);
+    setNumber(numbers);
+
+    const password = passwordCharacters();
+    return password;
+}

@@ -3,6 +3,7 @@ import Header from './Header/Header';
 import Display from './Display/Display';
 
 function Main() {
+
     return (
         <>
             <Header />

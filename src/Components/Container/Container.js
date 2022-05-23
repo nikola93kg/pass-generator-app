@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Container.css';
 import Button from './button/Button';
 import Slider from './slider/Slider';
 import Checkbox from './checkbox/Checkbox';
+import { generatePassword, setPasswordLength } from '../../Utils/Helper';
 
 const CHECKBOX_LIST = [
     {
@@ -31,7 +32,7 @@ const CHECKBOX_LIST = [
     },
 ]
 
-function Container() {
+function Container({ setPassword, setRange, setPassProps }) {
 
     const [rangeValue, setRangeValue] = useState(12);
     const [checkbox, setCheckbox] = useState({
@@ -43,15 +44,37 @@ function Container() {
     const [checked, setChecked] = useState(false);
     const [checkedName, setCheckedName] = useState('');
 
+    const { uppercase, lowercase, symbols, numbers } = checkbox;
+
+    useEffect(() => {
+        setPasswordLength(rangeValue);
+        setRange(rangeValue);
+        setRangeValue(rangeValue);
+        passwordGenerated(checkbox, rangeValue)
+
+    }, [uppercase, lowercase, symbols, numbers]);
+
+    const passwordGenerated = (checkbox, rangeValue) => {
+        const pass = generatePassword(checkbox, rangeValue);
+        setPassword(pass);
+        setPassProps(checkbox)
+    }
+
     const onChangeSlider = (e) => {
-        setRangeValue(e.target.value)
+        setPasswordLength(e.target.value);
+        setRangeValue(e.target.value);
+        setRange(e.target.value);
+        passwordGenerated(checkbox, e.target.value)
     }
     const onChangeCheckbox = (e) => {
         let { name, checked } = e.target;
         CHECKBOX_LIST.map(checkbox => {
             if (checkbox.name === name) {
                 checkbox.isChecked = checked;
-                setCheckbox({ [name]: checkbox.isChecked })
+                // setCheckbox({ [name]: checkbox.isChecked });
+                setCheckbox(prevState => ({ ...prevState, [name]: checkbox.isChecked }))
+                setPasswordLength(rangeValue);
+                setRangeValue(rangeValue);
             }
             return ''
         })
