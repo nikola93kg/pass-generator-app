@@ -50,9 +50,24 @@ function Container({ setPassword, setRange, setPassProps }) {
         setPasswordLength(rangeValue);
         setRange(rangeValue);
         setRangeValue(rangeValue);
-        passwordGenerated(checkbox, rangeValue)
+        passwordGenerated(checkbox, rangeValue);
+        checkBoxCount();
 
     }, [uppercase, lowercase, symbols, numbers]);
+
+
+    const checkBoxCount = () => {
+        const checkedCount = Object.keys(checkbox).filter(key => checkbox[key]);
+        const disabled = checkedCount.length === 1;
+        const name = checkedCount[0];
+        if (disabled) {
+            setChecked(disabled);
+            setCheckedName(name);
+        } else {
+            setChecked(false);
+            setCheckedName('');
+        }
+    }
 
     const passwordGenerated = (checkbox, rangeValue) => {
         const pass = generatePassword(checkbox, rangeValue);
@@ -110,7 +125,7 @@ function Container({ setPassword, setRange, setPassProps }) {
                                     label={label}
                                     value={isChecked}
                                     onChange={onChangeCheckbox}
-                                    disabled={false} />
+                                    disabled={checked && checkbox.isChecked && checkedName === checkbox.name} />
                             })
                         }
                     </div>

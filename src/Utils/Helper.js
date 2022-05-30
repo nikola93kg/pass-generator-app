@@ -68,3 +68,8 @@ export const generatePassword = (passwordProps, passLength) => {
     const password = passwordCharacters();
     return password;
 }
+
+export const copyToClipboard = (elementRef) => {
+    elementRef.select();
+    document.execCommand('copy');
+}

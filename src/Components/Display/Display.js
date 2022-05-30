@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './Display.css'
 import Container from '../Container/Container';
 import Button from '../Container/button/Button';
-import { generatePassword } from '../../Utils/Helper'
+import { generatePassword, copyToClipboard } from '../../Utils/Helper';
 
 function Display() {
 
@@ -10,11 +10,18 @@ function Display() {
     const [rangeValue, setRange] = useState();
     const [passProps, setPassProps] = useState();
 
+    const passwordRef = useRef(null);
+
     let passDescription = ''
 
     const generateNewPassword = () => {
         const newGeneratedPass = generatePassword(passProps, rangeValue);
         setPassword(newGeneratedPass)
+    }
+
+    const copyClipboard = (e) => {
+        e.preventDefault();
+        copyToClipboard(passwordRef.current)
     }
 
     const setBackgroundColor = (password) => {
@@ -39,7 +46,7 @@ function Display() {
                 <div className="col-12 password-display-container" style={{ backgroundColor: setBackgroundColor(password) }}>
                     <div className='pass-width'>
                         <div className="password-display">
-                            <input type="text" value={password} readOnly className='password-display-input' />
+                            <input ref={passwordRef} type="text" value={password} readOnly className='password-display-input' />
                         </div>
                         <div className="password-description">
                             {
@@ -50,14 +57,12 @@ function Display() {
                                     <>
                                         <i className='fas fa-exclamation-circle'></i> {passDescription}
                                     </>
-
                             }
-
                         </div>
                     </div>
 
                     <div className="password-display-icons">
-                        <Button className='copy-btn' iconClass='far fa-copy' />
+                        <Button className='copy-btn' iconClass='far fa-copy' handleClick={(e) => copyClipboard(e)} />
                         <Button className='generate-btn' iconClass='fas fa-sync-alt' handleClick={() => generateNewPassword()} />
                     </div>
 
