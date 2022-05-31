@@ -73,3 +73,9 @@ export const copyToClipboard = (elementRef) => {
     elementRef.select();
     document.execCommand('copy');
 }
+
+// export const copyToClipboard = (elementRef) => {
+//     navigator.clipboard?.writeText &&
+//         navigator.clipboard.writeText(elementRef)
+// }
+

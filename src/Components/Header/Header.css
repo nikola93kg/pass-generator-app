@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Turret+Road:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Slackey&display=swap");
 .header {
   color: #282c34;
   position: relative;
@@ -6,13 +8,19 @@
 }
 
 .h1 {
-  color: #ff554f;
-  font-size: 2.5rem;
+  color: #4aa1f3;
+  font-size: 3rem !important;
   text-align: center;
   padding: 0 10px;
+  font-family: "Turret Road", cursive;
+  font-family: "Slackey", cursive;
+  letter-spacing: 1px;
 }
 
 h4 {
   color: #506175;
   font-size: 1.5rem;
+}
+.header {
+  padding: 45px;
 }
