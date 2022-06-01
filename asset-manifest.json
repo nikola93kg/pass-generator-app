@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/pass-generator-app/static/css/main.0446386f.css",
-    "main.js": "/pass-generator-app/static/js/main.90b82924.js",
+    "main.css": "/pass-generator-app/static/css/main.1fc891d5.css",
+    "main.js": "/pass-generator-app/static/js/main.78ef755b.js",
     "index.html": "/pass-generator-app/index.html",
-    "main.0446386f.css.map": "/pass-generator-app/static/css/main.0446386f.css.map",
-    "main.90b82924.js.map": "/pass-generator-app/static/js/main.90b82924.js.map"
+    "static/media/wave.svg": "/pass-generator-app/static/media/wave.b017c9048ed802a0cc15.svg",
+    "main.1fc891d5.css.map": "/pass-generator-app/static/css/main.1fc891d5.css.map",
+    "main.78ef755b.js.map": "/pass-generator-app/static/js/main.78ef755b.js.map"
   },
   "entrypoints": [
-    "static/css/main.0446386f.css",
-    "static/js/main.90b82924.js"
+    "static/css/main.1fc891d5.css",
+    "static/js/main.78ef755b.js"
   ]
 }
