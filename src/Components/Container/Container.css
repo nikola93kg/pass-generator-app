@@ -16,3 +16,46 @@
   color: #fff;
   font-weight: 600;
 }
+@media only screen and (max-width: 1008px) {
+  body {
+    height: 110vh !important;
+  }
+  .password-settings {
+    max-width: fit-content;
+    display: flex;
+    flex-direction: column;
+  }
+  .password-settings br {
+    display: none;
+  }
+  .password-settings button {
+    margin-top: 10px;
+  }
+  .slider-container {
+    margin-bottom: 20px !important;
+  }
+  .password-display input {
+    width: 270px !important;
+  }
+  .slider span {
+    margin-top: 20px;
+  }
+  .range-slider-value {
+    margin-left: 0px !important;
+  }
+  .range-slider-value::after {
+    display: none;
+  }
+  .checkbox-container {
+    flex-direction: column;
+  }
+  .checkbox-container h1 {
+    margin-left: 10px !important;
+  }
+  .dropdown {
+    width: auto;
+  }
+  .dropdown select {
+    width: auto !important;
+  }
+}
